@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.*?>
+<AnchorPane maxHeight="415.0" maxWidth="415.0" minHeight="415.0" minWidth="415.0" prefHeight="415.0" prefWidth="415.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controller.BoardController">
+    <children>
+        <Pane fx:id="board" layoutX="-2.0" maxHeight="415.0" maxWidth="415.0" minHeight="415.0" minWidth="415.0"
+              prefHeight="415.0" prefWidth="415.0">
+            <children>
+                <Rectangle fx:id="dot1" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="201.0"
+                           layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot2" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="103.0"
+                           layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot3" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="397.0"
+                           layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot4" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="5.0"
+                           layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot5" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="299.0"
+                           layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot6" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="299.0"
+                           layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot7" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="5.0"
+                           layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot8" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="103.0"
+                           layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot9" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="397.0"
+                           layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot10" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="201.0"
+                           layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot11" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="300.0"
+                           layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot12" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="6.0"
+                           layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot13" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="398.0"
+                           layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot14" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="104.0"
+                           layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot15" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="202.0"
+                           layoutY="200.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot16" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="104.0"
+                           layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot17" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="104.0"
+                           layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot18" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="300.0"
+                           layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot19" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="6.0"
+                           layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot20" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="398.0"
+                           layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot21" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="202.0"
+                           layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot22" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="202.0"
+                           layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot23" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="300.0"
+                           layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot24" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="6.0"
+                           layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="dot25" arcHeight="5.0" arcWidth="5.0" fill="#363b40" height="15.0" layoutX="398.0"
+                           layoutY="396.0" stroke="BLACK" strokeType="INSIDE" width="15.0"/>
+
+                <Rectangle fx:id="line1" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="122.0"
+                           layoutY="102.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line2" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="220.0"
+                           layoutY="102.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line3" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="318.0"
+                           layoutY="102.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line4" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="24.0"
+                           layoutY="102.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line5" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="103.0"
+                           layoutY="23.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="line6" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="201.0"
+                           layoutY="23.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="line7" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="299.0"
+                           layoutY="23.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="line8" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="5.0"
+                           layoutY="23.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="line9" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="397.0"
+                           layoutY="23.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="15.0"/>
+                <Rectangle fx:id="line10" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="24.0"
+                           layoutY="4.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line11" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="318.0"
+                           layoutY="4.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE" width="75.0"/>
+                <Rectangle fx:id="line12" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="220.0"
+                           layoutY="4.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line13" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="122.0"
+                           layoutY="4.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line14" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="398.0"
+                           layoutY="121.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line15" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="6.0"
+                           layoutY="121.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line16" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="300.0"
+                           layoutY="121.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line17" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="202.0"
+                           layoutY="121.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line18" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="104.0"
+                           layoutY="121.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line19" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="25.0"
+                           layoutY="200.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line20" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="319.0"
+                           layoutY="200.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line21" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="221.0"
+                           layoutY="200.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line22" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="123.0"
+                           layoutY="200.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line23" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="398.0"
+                           layoutY="219.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line24" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="6.0"
+                           layoutY="219.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line25" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="300.0"
+                           layoutY="219.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line26" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="202.0"
+                           layoutY="219.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line27" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="104.0"
+                           layoutY="219.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line28" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="25.0"
+                           layoutY="298.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line29" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="319.0"
+                           layoutY="298.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line30" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="221.0"
+                           layoutY="298.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line31" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="123.0"
+                           layoutY="298.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line32" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="398.0"
+                           layoutY="317.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line33" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="6.0"
+                           layoutY="317.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line34" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="300.0"
+                           layoutY="317.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line35" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="202.0"
+                           layoutY="317.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line36" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="75.0" layoutX="104.0"
+                           layoutY="317.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="15.0"/>
+                <Rectangle fx:id="line37" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="25.0"
+                           layoutY="396.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line38" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="319.0"
+                           layoutY="396.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line39" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="221.0"
+                           layoutY="396.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+                <Rectangle fx:id="line40" arcHeight="5.0" arcWidth="5.0" fill="#d0e1f2" height="15.0" layoutX="123.0"
+                           layoutY="396.0" onMouseEntered="#setCursorHandOnMouseEntered"
+                           onMouseExited="#setCursorDefaultOnMouseEntered" onMouseClicked="#lineClicked" stroke="BLACK"
+                           strokeType="INSIDE"
+                           width="75.0"/>
+
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
