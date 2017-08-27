@@ -1,32 +1,42 @@
 package Model;
 
+import Controller.GUIInitializer;
+import javafx.stage.Stage;
+
 /**
  * Created by Paul van der Bles on 9-8-2017.
  */
 public class GameEngine {
 
-    private int rows;
-    private int columns;
+    private GUIInitializer guiInitializer;
+    private Stage primaryStage;
+    private Board board;
+
+    public GameEngine(GUIInitializer guiInitializer, Stage primaryStage) {
+        this.guiInitializer = guiInitializer;
+        this.primaryStage = primaryStage;
+        this.board = new Board();
+        setupGame();
+    }
 
     public void setupGame() {
-        // game logica toevoegen
-    }
-
-    public int getRows() {
-        return rows;
-    }
-
-    public int getColumns() {
-        return columns;
+        guiInitializer.initializeGUI(primaryStage, this);
     }
 
     public void setRows(int rows) {
-        this.rows = rows;
-        System.out.println("Aantal rows: " + rows);
+        board.setRows(rows);
+    }
+
+    public int getRows() {
+        return board.getRows();
     }
 
     public void setColumns(int columns) {
-        this.columns = columns;
-        System.out.println("Aantal columns: " + columns);
+        board.setColumns(columns);
+    }
+
+
+    public int getColumns() {
+        return board.getColumns();
     }
 }

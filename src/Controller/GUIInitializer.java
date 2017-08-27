@@ -14,6 +14,7 @@ import java.io.IOException;
 public class GUIInitializer {
 
     private GameEngine engine;
+    public boolean sizeSet;
 
     public void initializeGUI(Stage primaryStage, GameEngine engine) {
         this.engine = engine;
@@ -42,7 +43,7 @@ public class GUIInitializer {
     private void setSetupSceneOnStage(Stage primaryStage, FXMLLoader loader) {
         try {
             Parent root = loader.load();
-            primaryStage.setScene(new Scene(root, 300, 140));
+            primaryStage.setScene(new Scene(root, 400, 160));
         } catch (IOException e) {
             // TODO: Error vangen
         }
@@ -66,19 +67,26 @@ public class GUIInitializer {
         boardController.setScene(primaryStage.getScene());
     }
 
-    public boolean isRowsSet() {
-        return engine.getRows() != 0;
-    }
-
-    public boolean isColumnsSet() {
-        return engine.getColumns() != 0;
-    }
-
-    public void setRows(int input) {
+    void setRows(int input) {
         engine.setRows(input);
     }
 
-    public void setColumns(int input) {
+    void setColumns(int input) {
         engine.setColumns(input);
+    }
+
+    boolean isRowsSet() {
+        return engine.getRows() != 0;
+    }
+
+    boolean isColumnsSet() {
+        return engine.getColumns() != 0;
+    }
+
+
+    void checkIfBoardIsReady() {
+        if (isRowsSet() && isColumnsSet()){
+            System.out.println("Nu moet het bord getekend worden");
+        }
     }
 }

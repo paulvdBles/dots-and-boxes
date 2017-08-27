@@ -65,15 +65,16 @@ public class SetupController {
         } else if (!initializer.isColumnsSet()) {
             SetColumnSize(convertedInput);
         }
-    }
-
-    private void SetColumnSize(int convertedInput) {
-        initializer.setColumns(convertedInput);
+        initializer.checkIfBoardIsReady();
     }
 
     private void setRowSize(int convertedInput) {
         initializer.setRows(convertedInput);
         changeColumnsMessage();
+    }
+
+    private void SetColumnSize(int convertedInput) {
+        initializer.setColumns(convertedInput);
     }
 
     private void changeColumnsMessage() {
