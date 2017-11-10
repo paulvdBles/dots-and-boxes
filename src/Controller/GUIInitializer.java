@@ -14,12 +14,13 @@ import java.io.IOException;
 public class GUIInitializer {
 
     private GameEngine engine;
-    public boolean sizeSet;
+    private Stage primaryStage;
 
     public void initializeGUI(Stage primaryStage, GameEngine engine) {
         this.engine = engine;
         setTitle(primaryStage);
         loadSetupScreen(primaryStage);
+        this.primaryStage = primaryStage;
     }
 
     private void setTitle(Stage primaryStage) {
@@ -33,7 +34,7 @@ public class GUIInitializer {
         primaryStage.show();
     }
 
-    private void loadBoardScreen(Stage primaryStage) {
+    private void loadBoardView(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
         setBoardSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
         attachSceneToController(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
@@ -86,7 +87,7 @@ public class GUIInitializer {
 
     void checkIfBoardIsReady() {
         if (isRowsSet() && isColumnsSet()){
-            System.out.println("Nu moet het bord getekend worden");
+            loadBoardView(primaryStage);
         }
     }
 }

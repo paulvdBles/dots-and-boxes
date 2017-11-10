@@ -10,9 +10,9 @@
     <children>
         <Pane maxHeight="160.0" maxWidth="400.0" minHeight="160.0" minWidth="400.0" prefHeight="160.0" prefWidth="400.0">
             <children>
-                <Text fx:id="message" layoutX="71.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter number of rows between 3 and 9" />
-                <TextField fx:id="inputField" layoutX="107.0" layoutY="65.0" />
-                <Button fx:id="confirm" layoutX="180.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#prepareToSendBoardSizeAfterClick" text="OK" />
+                <Text fx:id="message" layoutX="100.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter number of rows between 3 and 9" />
+                <TextField fx:id="inputField" layoutX="126.0" layoutY="74.0" />
+                <Button fx:id="confirm" layoutX="184.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#prepareToSendBoardSizeAfterClick" text="OK" />
             </children>
         </Pane>
     </children>
