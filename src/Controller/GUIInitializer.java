@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Board;
 import Model.GameEngine;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,8 +51,9 @@ public class GUIInitializer {
 
     private void attachSceneToController(Stage primaryStage, FXMLLoader loader) {
         BoardController boardController = loader.getController();
-        boardController.setScene(primaryStage.getScene());
+        boardController.setPrimaryScene(primaryStage.getScene());
     }
+
 
     void checkIfBoardIsReady() {
         if (isRowsSet() && isColumnsSet()){
@@ -63,7 +65,7 @@ public class GUIInitializer {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
         setBoardSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
         attachSceneToController(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
-        primaryStage.show();
+        engine.startGame(primaryStage, loader);
     }
 
     private FXMLLoader instantiateFXMLLoader(String fileName) {
