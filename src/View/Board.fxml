@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="465.0" maxWidth="415.0" minHeight="415.0" minWidth="415.0" prefHeight="465.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BoardController">
@@ -28,5 +29,10 @@
       <Text fx:id="PlayerTwo" layoutX="38.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2:" />
       <Text fx:id="playerOnePoints" layoutX="87.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Points" />
       <Text fx:id="playertwoPoints" layoutX="87.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Points" />
+      <Text layoutX="152.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dots and Boxes">
+         <font>
+            <Font name="Press Start 2P" size="18.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>

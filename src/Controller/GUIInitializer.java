@@ -16,15 +16,29 @@ public class GUIInitializer {
     private GameEngine engine;
     private Stage primaryStage;
 
+    void setRows(int input) {
+        engine.setRows(input);
+    }
+    void setColumns(int input) {
+        engine.setColumns(input);
+    }
+
+    boolean isRowsSet() {
+        return engine.getRows() != 0;
+    }
+    boolean isColumnsSet() {
+        return engine.getColumns() != 0;
+    }
+
+    private void setTitle(Stage primaryStage) {
+        primaryStage.setTitle("Dots and boxes");
+    }
+
     public void initializeGUI(Stage primaryStage, GameEngine engine) {
         this.engine = engine;
         setTitle(primaryStage);
         loadSetupScreen(primaryStage);
         this.primaryStage = primaryStage;
-    }
-
-    private void setTitle(Stage primaryStage) {
-        primaryStage.setTitle("Dots and boxes");
     }
 
     private void loadSetupScreen(Stage primaryStage) {
@@ -34,6 +48,17 @@ public class GUIInitializer {
         primaryStage.show();
     }
 
+    private void attachSceneToController(Stage primaryStage, FXMLLoader loader) {
+        BoardController boardController = loader.getController();
+        boardController.setScene(primaryStage.getScene());
+    }
+
+    void checkIfBoardIsReady() {
+        if (isRowsSet() && isColumnsSet()){
+            loadBoardView(primaryStage);
+        }
+    }
+
     private void loadBoardView(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
         setBoardSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
@@ -41,10 +66,14 @@ public class GUIInitializer {
         primaryStage.show();
     }
 
+    private FXMLLoader instantiateFXMLLoader(String fileName) {
+        return new FXMLLoader(getClass().getResource("/View/" + fileName));
+    }
+
     private void setSetupSceneOnStage(Stage primaryStage, FXMLLoader loader) {
         try {
             Parent root = loader.load();
-            primaryStage.setScene(new Scene(root, 400, 160));
+            primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             // TODO: Error vangen
         }
@@ -53,41 +82,9 @@ public class GUIInitializer {
     private void setBoardSceneOnStage(Stage primaryStage, FXMLLoader loader) {
         try {
             Parent root = loader.load();
-            primaryStage.setScene(new Scene(root, 415, 415));
+            primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
             // TODO: Error vangen
-        }
-    }
-
-    private FXMLLoader instantiateFXMLLoader(String fileName) {
-        return new FXMLLoader(getClass().getResource("/View/" + fileName));
-    }
-
-    private void attachSceneToController(Stage primaryStage, FXMLLoader loader) {
-        BoardController boardController = loader.getController();
-        boardController.setScene(primaryStage.getScene());
-    }
-
-    void setRows(int input) {
-        engine.setRows(input);
-    }
-
-    void setColumns(int input) {
-        engine.setColumns(input);
-    }
-
-    boolean isRowsSet() {
-        return engine.getRows() != 0;
-    }
-
-    boolean isColumnsSet() {
-        return engine.getColumns() != 0;
-    }
-
-
-    void checkIfBoardIsReady() {
-        if (isRowsSet() && isColumnsSet()){
-            loadBoardView(primaryStage);
         }
     }
 }
