@@ -5,6 +5,9 @@ import Controller.GUIInitializer;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Paul van der Bles on 9-8-2017.
  */
@@ -22,7 +25,7 @@ public class GameEngine {
         setupGame();
     }
 
-    public void setupGame() {
+    private void setupGame() {
         guiInitializer.initializeGUI(primaryStage, this);
     }
 
@@ -43,9 +46,58 @@ public class GameEngine {
     }
 
     public void startGame(Stage primaryStage, FXMLLoader loader) {
-        // write something that sets the right amount of rows and lines
         boardController = loader.getController();
-        boardController.drawBoard(board.getColumns(), board.getRows());
+        List boardList = createBoardList(board.getColumns(), board.getRows());
+        printList(boardList);
         primaryStage.show();
     }
+
+    private List createBoardList(int columns, int rows) {
+        List<List<Object>> boardList = new ArrayList<>();
+        for (int currentRow = 0; currentRow <= (rows * 2); currentRow++) {
+            List<Object> objectsRow = new ArrayList<>();
+            for (int currentColumn = 0; currentColumn < columns; currentColumn++) {
+                addItemsToObjectRow(columns, currentRow, objectsRow, currentColumn);
+            }
+            boardList.add(objectsRow);
+        }
+
+        return boardList;
+    }
+
+    private void addItemsToObjectRow(int columns, int currentRow, List<Object> objectsRow, int currentColumn) {
+        if ((currentRow & 1) == 0) {
+            addDotsAndLines(columns, objectsRow, currentColumn);
+        } else {
+            addLinesAndBoxes(columns, objectsRow, currentColumn);
+        }
+    }
+
+    private void addDotsAndLines(int columns, List<Object> objectsRow, int currentColumn) {
+        objectsRow.add(new Dot());
+        objectsRow.add(new Line());
+        if (currentColumn == columns - 1) {
+            objectsRow.add(new Dot());
+        }
+    }
+
+    private void addLinesAndBoxes(int columns, List<Object> objectsRow, int currentColumn) {
+        objectsRow.add(new Line());
+        objectsRow.add(new Box());
+        if (currentColumn == columns - 1) {
+            objectsRow.add(new Line());
+        }
+    }
+
+    private void printList(List<List<Object>> boardList){
+        for (List<Object> objectRow: boardList) {
+            StringBuilder sb = new StringBuilder();
+            for (Object item : objectRow) {
+                sb.append(item + " ");
+            }
+            System.out.println(sb);
+        }
+    }
+
+
 }

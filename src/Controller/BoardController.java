@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
 
 
@@ -30,43 +31,28 @@ public class BoardController {
         this.primaryScene = primaryScene;
     }
 
-    public void drawBoard(int columns, int rows) {
-        float positionX = 5;
-        float positionY = 5;
-
-        for (int currentRow = 0; currentRow <= rows; currentRow++) {
-            for (int currentColumn = 0; currentColumn <= columns; currentColumn++) {
-                createDotAt(positionX, positionY);
-                if (currentColumn < columns) {
-                    createLineAt(positionX, positionY, "horizontal"); // creates a horizontal line next to dot
-                }
-                if (currentRow < rows) {
-                    createLineAt(positionX - 14, positionY + 14, "vertical"); // creates a vertical line underneath dot
-                }
-                positionX += 88;
-            }
-            positionX -= (88 * (columns + 1));
-            positionY += 88;
-        }
-        System.out.println("\n Drawed dots: " + dots);
-        System.out.println("Drawed lines: " + lines);
-    }
-
-    private void createInnerCubeAt(float positionX, float positionY) {
-        // the inner cube you know
+    private void createBoxAt(float positionX, float positionY) {
+        Rectangle box = new Rectangle();
+        box.setHeight(75);
+        box.setWidth(75);
+        box.setLayoutX(positionX);
+        box.setLayoutY(positionY);
+        box.setFill(Color.WHITE);
+        box.setStroke(Color.BLACK);
+        box.setStrokeType(StrokeType.INSIDE);
+        boardPane.getChildren().add(box);
     }
 
     private void createDotAt(float positionX, float positionY) {
         Rectangle dot = new Rectangle();
-
         dot.setHeight(15);
         dot.setWidth(15);
-        dot.setLayoutX(positionX); // so it went 88 places to the right
+        dot.setLayoutX(positionX);
         dot.setLayoutY(positionY);
         dot.setFill(Color.valueOf("#363b40"));
-
+        dot.setStroke(Color.BLACK);
+        dot.setStrokeType(StrokeType.INSIDE);
         boardPane.getChildren().add(dot);
-
         dots += 1;
     }
 
@@ -81,26 +67,31 @@ public class BoardController {
             line.setWidth(15);
         }
 
-        line.setLayoutX(positionX + 14); // so it went 88 places to the right
+        line.setLayoutX(positionX + 14); // TODO: checken of dit moet?
         line.setLayoutY(positionY);
         line.setFill(Color.valueOf("#d0e1f2"));
-
+        line.setOnMouseEntered(e -> setCursorHand());
+        line.setOnMouseExited(e -> setCursorDefault());
+        line.setStroke(Color.BLACK);
+        line.setStrokeType(StrokeType.INSIDE);
         boardPane.getChildren().add(line);
 
         lines += 1;
+    }
+
+    private void getPositions(){
+        // Deze controller moet echt bijhouden wat positie x en y zijn en wat er teruggegeven moet worden aan een dot, line en box
     }
 
     public void lineClicked() {
         System.out.println("Click!");
     }
 
-    public void setCursorHandOnMouseEntered() {
+    public void setCursorHand() {
         primaryScene.setCursor(Cursor.HAND);
     }
 
-    public void setCursorDefaultOnMouseEntered() {
+    public void setCursorDefault() {
         primaryScene.setCursor(Cursor.DEFAULT);
     }
-
-
 }
