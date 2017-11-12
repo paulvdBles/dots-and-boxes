@@ -34,20 +34,22 @@ public class BoardController {
         float positionX = 5;
         float positionY = 5;
 
-        // draw the dots on the board
         for (int currentRow = 0; currentRow <= rows; currentRow++) {
             for (int currentColumn = 0; currentColumn <= columns; currentColumn++) {
-                    createDotAt(positionX, positionY);
-                    positionX += 88;
+                createDotAt(positionX, positionY);
+                if (currentColumn < columns) {
+                    createLineAt(positionX, positionY, "horizontal"); // creates a horizontal line next to dot
+                }
+                if (currentRow < rows) {
+                    createLineAt(positionX - 14, positionY + 14, "vertical"); // creates a vertical line underneath dot
+                }
+                positionX += 88;
             }
             positionX -= (88 * (columns + 1));
             positionY += 88;
         }
-        System.out.println("Drawed dots: " + dots);
+        System.out.println("\n Drawed dots: " + dots);
         System.out.println("Drawed lines: " + lines);
-
-        // draw the lines on the board
-
     }
 
     private void createInnerCubeAt(float positionX, float positionY) {
@@ -68,13 +70,13 @@ public class BoardController {
         dots += 1;
     }
 
-    private void createLineAt(float positionX, float positionY, boolean horizontal) {
+    private void createLineAt(float positionX, float positionY, String type) {
         Rectangle line = new Rectangle();
 
-        if (horizontal) {
+        if (type == "horizontal") {
             line.setHeight(15);
             line.setWidth(75);
-        } else {
+        } else if (type == "vertical") {
             line.setHeight(75);
             line.setWidth(15);
         }
@@ -85,7 +87,7 @@ public class BoardController {
 
         boardPane.getChildren().add(line);
 
-        lines += 2;
+        lines += 1;
     }
 
     public void lineClicked() {
