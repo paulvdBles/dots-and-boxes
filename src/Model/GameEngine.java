@@ -49,9 +49,8 @@ public class GameEngine {
         boardController = loader.getController();
         List listOfBoardItems = createListOfBoardItems(board.getColumns(), board.getRows());
         attachBoxesToLines(listOfBoardItems);
-        printList(listOfBoardItems); // for test purposes
+        boardController.drawItemsOnBoard(listOfBoardItems);
         primaryStage.show();
-        // hier het starten van een ronde
     }
 
     private List createListOfBoardItems(int columns, int rows) {
@@ -133,16 +132,5 @@ public class GameEngine {
         Line westernLine = (Line) rowThatContainsLine.get(targetLineIndex);
         return westernLine;
     }
-
-    private void printList(List<List<Object>> boardList) {
-        for (List<Object> objectRow : boardList) {
-            StringBuilder sb = new StringBuilder();
-            for (Object item : objectRow) {
-                sb.append(item + " ");
-            }
-            System.out.println(sb);
-        }
-    }
-
 
 }

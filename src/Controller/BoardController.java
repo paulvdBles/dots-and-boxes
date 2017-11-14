@@ -1,5 +1,9 @@
 package Controller;
 
+import Model.BoardItem;
+import Model.Box;
+import Model.Dot;
+import Model.Line;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
@@ -8,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Text;
+
+import java.util.List;
 
 
 public class BoardController {
@@ -24,14 +30,32 @@ public class BoardController {
     @FXML
     private Pane boardPane;
 
-    private int dots = 0;
-    private int lines = 0;
+    private float positionX = 5;
+    private float positionY = 5;
 
     void setPrimaryScene(Scene primaryScene) {
         this.primaryScene = primaryScene;
     }
 
-    private void createBoxAt(float positionX, float positionY) {
+    public void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems) {
+        for (List<BoardItem> rowOfBoardItems : listOfBoardItems) {
+            for (BoardItem item : rowOfBoardItems) {
+                if (item instanceof Dot) {
+                    createDot();
+                }
+                if (item instanceof Box) {
+                    createBox();
+                }
+                if (item instanceof Line) {
+                    determineWhatTypeOfLineShouldBeMade(listOfBoardItems, rowOfBoardItems);
+                }
+            }
+            positionX = 5;
+            positionY = determinateWhatPositionYShouldBe(listOfBoardItems, positionY, rowOfBoardItems);
+        }
+    }
+
+    private void createBox() {
         Rectangle box = new Rectangle();
         box.setHeight(75);
         box.setWidth(75);
@@ -41,9 +65,10 @@ public class BoardController {
         box.setStroke(Color.BLACK);
         box.setStrokeType(StrokeType.INSIDE);
         boardPane.getChildren().add(box);
+        positionX += 74;
     }
 
-    private void createDotAt(float positionX, float positionY) {
+    private void createDot() {
         Rectangle dot = new Rectangle();
         dot.setHeight(15);
         dot.setWidth(15);
@@ -53,34 +78,49 @@ public class BoardController {
         dot.setStroke(Color.BLACK);
         dot.setStrokeType(StrokeType.INSIDE);
         boardPane.getChildren().add(dot);
-        dots += 1;
+        positionX += 14;
     }
 
-    private void createLineAt(float positionX, float positionY, String type) {
+    private void createLineAs(String type) {
         Rectangle line = new Rectangle();
 
         if (type == "horizontal") {
             line.setHeight(15);
             line.setWidth(75);
+            line.setLayoutX(positionX);
+            positionX += 74;
         } else if (type == "vertical") {
             line.setHeight(75);
             line.setWidth(15);
+            line.setLayoutX(positionX);
+            positionX += 14;
         }
 
-        line.setLayoutX(positionX + 14); // TODO: checken of dit moet?
         line.setLayoutY(positionY);
         line.setFill(Color.valueOf("#d0e1f2"));
         line.setOnMouseEntered(e -> setCursorHand());
         line.setOnMouseExited(e -> setCursorDefault());
+        line.setOnMouseClicked(e -> lineClicked());
         line.setStroke(Color.BLACK);
         line.setStrokeType(StrokeType.INSIDE);
         boardPane.getChildren().add(line);
-
-        lines += 1;
     }
 
-    private void getPositions(){
-        // Deze controller moet echt bijhouden wat positie x en y zijn en wat er teruggegeven moet worden aan een dot, line en box
+    private float determinateWhatPositionYShouldBe(List<List<BoardItem>> listOfBoardItems, float positionY, List<BoardItem> rowOfBoardItems) {
+        if ((listOfBoardItems.indexOf(rowOfBoardItems) & 1) == 0) {
+            positionY += 14;
+        } else {
+            positionY += 74;
+        }
+        return positionY;
+    }
+
+    private void determineWhatTypeOfLineShouldBeMade(List<List<BoardItem>> listOfBoardItems, List<BoardItem> rowOfBoardItems) {
+        if ((listOfBoardItems.indexOf(rowOfBoardItems) & 1) == 0) {
+            createLineAs("horizontal");
+        } else {
+            createLineAs("vertical");
+        }
     }
 
     public void lineClicked() {
@@ -94,4 +134,5 @@ public class BoardController {
     public void setCursorDefault() {
         primaryScene.setCursor(Cursor.DEFAULT);
     }
+
 }

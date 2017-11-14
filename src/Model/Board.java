@@ -15,12 +15,10 @@ public class Board {
 
     public void setRows(int rows) {
         this.rows = rows;
-        System.out.println("Aantal rows: " + rows);
     }
 
     public void setColumns(int columns) {
         this.columns = columns;
-        System.out.println("Aantal columns: " + columns);
     }
 
 }

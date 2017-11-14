@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Paul van der Bles on 9-8-2017.
@@ -53,14 +54,13 @@ public class GUIInitializer {
         boardController.setPrimaryScene(primaryStage.getScene());
     }
 
-
     void checkIfBoardIsReady() {
         if (isRowsSet() && isColumnsSet()){
-            loadBoardView(primaryStage);
+            buildBoard(primaryStage);
         }
     }
 
-    private void loadBoardView(Stage primaryStage) {
+    private void buildBoard(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
         setBoardSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
         attachSceneToController(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
