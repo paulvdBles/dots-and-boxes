@@ -16,6 +16,7 @@ public class GUIInitializer {
 
     private GameEngine engine;
     private Stage primaryStage;
+    private BoardController boardController;
 
     void setRows(int input) {
         engine.setRows(input);
@@ -49,8 +50,7 @@ public class GUIInitializer {
         primaryStage.show();
     }
 
-    private void attachSceneToController(Stage primaryStage, FXMLLoader loader) {
-        BoardController boardController = loader.getController();
+    private void attachSceneToController(Stage primaryStage) {
         boardController.setPrimaryScene(primaryStage.getScene());
     }
 
@@ -62,10 +62,18 @@ public class GUIInitializer {
 
     private void buildBoard(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
-        setBoardSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
-        attachSceneToController(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
-        engine.configureBoardItems(primaryStage, loader);
+        setBoardSceneOnStage(primaryStage, loader);
+        setBoardControllerReference(loader);
+        attachSceneToController(primaryStage);
+        List listOfBoardItems = engine.configureBoardItems(loader);
+        boardController.drawItemsOnBoard(listOfBoardItems);
+        primaryStage.show();
     }
+
+    private void setBoardControllerReference(FXMLLoader loader) {
+        boardController = loader.getController();
+    }
+
 
     private FXMLLoader instantiateFXMLLoader(String fileName) {
         return new FXMLLoader(getClass().getResource("/View/" + fileName));

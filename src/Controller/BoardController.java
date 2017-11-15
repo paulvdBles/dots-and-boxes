@@ -98,7 +98,9 @@ public class BoardController {
 
         line.setLayoutY(positionY);
         line.setFill(Color.valueOf("#d0e1f2"));
+        line.setOnMouseEntered(e -> line.setFill(Color.BLACK));
         line.setOnMouseEntered(e -> setCursorHand());
+        line.setOnMouseExited(e -> line.setFill(Color.valueOf("#d0e1f2")));
         line.setOnMouseExited(e -> setCursorDefault());
         line.setOnMouseClicked(e -> lineClicked());
         line.setStroke(Color.BLACK);

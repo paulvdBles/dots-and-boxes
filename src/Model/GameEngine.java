@@ -45,12 +45,11 @@ public class GameEngine {
         return board.getColumns();
     }
 
-    public void configureBoardItems(Stage primaryStage, FXMLLoader loader) {
+    public List configureBoardItems(FXMLLoader loader) {
         boardController = loader.getController();
         List listOfBoardItems = createListOfBoardItems(board.getColumns(), board.getRows());
         attachBoxesToLines(listOfBoardItems);
-        boardController.drawItemsOnBoard(listOfBoardItems);
-        primaryStage.show();
+        return listOfBoardItems;
     }
 
     private List createListOfBoardItems(int columns, int rows) {
