@@ -4,6 +4,8 @@ import Model.BoardItem;
 import Model.Box;
 import Model.Dot;
 import Model.Line;
+import Shapes.BoxShape;
+import Shapes.LineShape;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
@@ -44,10 +46,10 @@ public class BoardController {
                     createDot();
                 }
                 if (item instanceof Box) {
-                    createBox();
+                    createBox((Box)item);
                 }
                 if (item instanceof Line) {
-                    determineWhatTypeOfLineShouldBeMade(listOfBoardItems, rowOfBoardItems);
+                    determineWhatTypeOfLineShouldBeMade(listOfBoardItems, rowOfBoardItems, (Line)item);
                 }
             }
             positionX = 5;
@@ -55,8 +57,8 @@ public class BoardController {
         }
     }
 
-    private void createBox() {
-        Rectangle box = new Rectangle();
+    private void createBox(Box boxObject) {
+        BoxShape box = new BoxShape(boxObject);
         box.setHeight(75);
         box.setWidth(75);
         box.setLayoutX(positionX);
@@ -81,8 +83,9 @@ public class BoardController {
         positionX += 14;
     }
 
-    private void createLineAs(String type) {
-        Rectangle line = new Rectangle();
+    private void createLineAs(String type, Line lineObject) {
+        LineShape line = new LineShape(lineObject);
+//        Rectangle line = new Rectangle();
 
         if (type == "horizontal") {
             line.setHeight(15);
@@ -115,11 +118,11 @@ public class BoardController {
         return positionY;
     }
 
-    private void determineWhatTypeOfLineShouldBeMade(List<List<BoardItem>> listOfBoardItems, List<BoardItem> rowOfBoardItems) {
+    private void determineWhatTypeOfLineShouldBeMade(List<List<BoardItem>> listOfBoardItems, List<BoardItem> rowOfBoardItems, Line line) {
         if ((listOfBoardItems.indexOf(rowOfBoardItems) & 1) == 0) {
-            createLineAs("horizontal");
+            createLineAs("horizontal", line);
         } else {
-            createLineAs("vertical");
+            createLineAs("vertical", line);
         }
     }
 
