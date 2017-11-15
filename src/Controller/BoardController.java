@@ -37,7 +37,7 @@ public class BoardController {
         this.primaryScene = primaryScene;
     }
 
-    public void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems) {
+    void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems) {
         for (List<BoardItem> rowOfBoardItems : listOfBoardItems) {
             for (BoardItem item : rowOfBoardItems) {
                 if (item instanceof Dot) {
@@ -98,10 +98,8 @@ public class BoardController {
 
         line.setLayoutY(positionY);
         line.setFill(Color.valueOf("#d0e1f2"));
-        line.setOnMouseEntered(e -> line.setFill(Color.BLACK));
-        line.setOnMouseEntered(e -> setCursorHand());
-        line.setOnMouseExited(e -> line.setFill(Color.valueOf("#d0e1f2")));
-        line.setOnMouseExited(e -> setCursorDefault());
+        line.setOnMouseEntered(e -> setOnLineEntered(line));
+        line.setOnMouseExited(e -> setOnLineExited(line));
         line.setOnMouseClicked(e -> lineClicked());
         line.setStroke(Color.BLACK);
         line.setStrokeType(StrokeType.INSIDE);
@@ -129,11 +127,13 @@ public class BoardController {
         System.out.println("Click!");
     }
 
-    public void setCursorHand() {
+    private void setOnLineEntered(Rectangle line) {
+        line.setFill(Color.valueOf("#a6b1bb"));
         primaryScene.setCursor(Cursor.HAND);
     }
 
-    public void setCursorDefault() {
+    private void setOnLineExited(Rectangle line) {
+        line.setFill(Color.valueOf("#d0e1f2"));
         primaryScene.setCursor(Cursor.DEFAULT);
     }
 

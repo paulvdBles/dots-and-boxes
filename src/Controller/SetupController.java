@@ -78,7 +78,7 @@ public class SetupController {
     }
 
     private void changeColumnsMessage() {
-        message.setText("Enter number of columns between 3 and 9");
+        message.setText("Enter a number of columns between 3 and 9");
     }
 
 
