@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.BoardBuilder;
 import Model.GameEngine;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -65,7 +66,7 @@ public class GUIInitializer {
         setBoardSceneOnStage(primaryStage, loader);
         setBoardControllerReference(loader);
         attachSceneToController(primaryStage);
-        List listOfBoardItems = engine.configureBoardItems(loader);
+        List listOfBoardItems = new BoardBuilder().configureBoardItems(loader, engine);
         boardController.drawItemsOnBoard(listOfBoardItems);
         primaryStage.show();
     }
