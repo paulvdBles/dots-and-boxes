@@ -1,4 +1,4 @@
-import Controller.GUIInitializer;
+import Model.GUIInitializer;
 import Model.GameEngine;
 import javafx.application.Application;
 import javafx.stage.Stage;

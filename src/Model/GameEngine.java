@@ -1,13 +1,8 @@
 package Model;
 
 import Controller.BoardController;
-import Controller.GUIInitializer;
 import Model.GameObjects.*;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Paul van der Bles on 9-8-2017.

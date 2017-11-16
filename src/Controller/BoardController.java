@@ -29,11 +29,11 @@ public class BoardController {
     private float positionX = 5;
     private float positionY = 5;
 
-    void setPrimaryScene(Scene primaryScene) {
+    public void setPrimaryScene(Scene primaryScene) {
         this.primaryScene = primaryScene;
     }
 
-    void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems) {
+    public void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems) {
         for (List<BoardItem> rowOfBoardItems : listOfBoardItems) {
             for (BoardItem item : rowOfBoardItems) {
                 if (item instanceof Dot) {

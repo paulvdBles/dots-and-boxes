@@ -1,5 +1,7 @@
-package Controller;
+package Model;
 
+import Controller.BoardController;
+import Controller.SetupController;
 import Model.BoardBuilder;
 import Model.GameEngine;
 import javafx.fxml.FXMLLoader;
@@ -19,17 +21,17 @@ public class GUIInitializer {
     private Stage primaryStage;
     private BoardController boardController;
 
-    void setRows(int input) {
+    public void setRows(int input) {
         engine.setRows(input);
     }
-    void setColumns(int input) {
+    public void setColumns(int input) {
         engine.setColumns(input);
     }
 
-    boolean isRowsSet() {
+    public boolean isRowsSet() {
         return engine.getRows() != 0;
     }
-    boolean isColumnsSet() {
+    public boolean isColumnsSet() {
         return engine.getColumns() != 0;
     }
 
@@ -55,7 +57,7 @@ public class GUIInitializer {
         boardController.setPrimaryScene(primaryStage.getScene());
     }
 
-    void checkIfBoardIsReady() {
+    public void checkIfBoardIsReady() {
         if (isRowsSet() && isColumnsSet()){
             buildBoard(primaryStage);
         }
