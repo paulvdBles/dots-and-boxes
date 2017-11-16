@@ -2,6 +2,7 @@ package Model;
 
 import Controller.BoardController;
 import Controller.GUIInitializer;
+import Model.GameObjects.*;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 

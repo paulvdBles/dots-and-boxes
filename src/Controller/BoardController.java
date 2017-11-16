@@ -1,11 +1,11 @@
 package Controller;
 
-import Model.BoardItem;
-import Model.Box;
-import Model.Dot;
-import Model.Line;
-import Shapes.BoxShape;
-import Shapes.LineShape;
+import Model.GameObjects.BoardItem;
+import Model.GameObjects.Box;
+import Model.GameObjects.Dot;
+import Model.GameObjects.Line;
+import Model.Shapes.BoxShape;
+import Model.Shapes.LineShape;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
@@ -22,12 +22,6 @@ public class BoardController {
 
     @FXML
     private Scene primaryScene;
-
-    @FXML
-    private Text gameTitle;
-
-    @FXML
-    private Pane menuPane;
 
     @FXML
     private Pane boardPane;
