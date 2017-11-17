@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.GameEngine;
 import Model.GameObjects.BoardItem;
 import Model.GameObjects.Box;
 import Model.GameObjects.Dot;
@@ -25,6 +26,8 @@ public class BoardController {
 
     @FXML
     private Pane boardPane;
+
+    private GameEngine engine;
 
     private float positionX = 5;
     private float positionY = 5;
@@ -79,7 +82,6 @@ public class BoardController {
 
     private void createLineAs(String type, Line lineObject) {
         LineShape line = new LineShape(lineObject);
-//        Rectangle line = new Rectangle();
 
         if (type == "horizontal") {
             line.setHeight(15);
@@ -125,7 +127,7 @@ public class BoardController {
     }
 
     private void setOnLineEntered(Rectangle line) {
-        line.setFill(Color.valueOf("#a6b1bb"));
+        line.setFill(Color.valueOf(engine.getCurrentPlayerColour()));
         primaryScene.setCursor(Cursor.HAND);
     }
 
@@ -134,4 +136,7 @@ public class BoardController {
         primaryScene.setCursor(Cursor.DEFAULT);
     }
 
+    public void setEngine(GameEngine engine) {
+        this.engine = engine;
+    }
 }

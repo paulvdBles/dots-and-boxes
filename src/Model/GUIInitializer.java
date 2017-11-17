@@ -2,8 +2,6 @@ package Model;
 
 import Controller.BoardController;
 import Controller.SetupController;
-import Model.BoardBuilder;
-import Model.GameEngine;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,6 +22,7 @@ public class GUIInitializer {
     public void setRows(int input) {
         engine.setRows(input);
     }
+
     public void setColumns(int input) {
         engine.setColumns(input);
     }
@@ -68,8 +67,9 @@ public class GUIInitializer {
         setBoardSceneOnStage(primaryStage, loader);
         setBoardControllerReference(loader);
         attachSceneToController(primaryStage);
-        List listOfBoardItems = new BoardBuilder().configureBoardItems(loader, engine);
+        List listOfBoardItems = new BoardItemsBuilder().configureBoardItems(engine);
         boardController.drawItemsOnBoard(listOfBoardItems);
+        boardController.setEngine(engine);
         primaryStage.show();
     }
 
@@ -99,4 +99,5 @@ public class GUIInitializer {
             // TODO: Error vangen
         }
     }
+
 }

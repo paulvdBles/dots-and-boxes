@@ -20,9 +20,6 @@ public class SetupController {
     @FXML
     TextField inputField;
 
-    @FXML
-    Button confirm;
-
     public SetupController(GUIInitializer initializer) {
         this.initializer = initializer;
     }

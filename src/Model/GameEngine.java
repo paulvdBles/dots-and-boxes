@@ -1,6 +1,5 @@
 package Model;
 
-import Controller.BoardController;
 import Model.GameObjects.*;
 import javafx.stage.Stage;
 
@@ -12,13 +11,22 @@ public class GameEngine {
     private GUIInitializer guiInitializer;
     private Stage primaryStage;
     private Board board;
-    private BoardController boardController;
+    private Player playerOne;
+    private Player playerTwo;
+    private Player currentPlayer;
 
     public GameEngine(GUIInitializer guiInitializer, Stage primaryStage) {
         this.guiInitializer = guiInitializer;
         this.primaryStage = primaryStage;
         this.board = new Board();
+        initializePlayers();
         startSetup();
+    }
+
+    private void initializePlayers() {
+        playerOne = new Player("#ff1f1f");
+        playerTwo = new Player("#1e90ff");
+        currentPlayer = playerOne;
     }
 
     private void startSetup() {
@@ -41,6 +49,12 @@ public class GameEngine {
         return board.getColumns();
     }
 
+    public void turn(){
+        // een object met een methode met heel veel methodes die checkt of er nu een box is
+    }
 
+    public String getCurrentPlayerColour() {
+        return currentPlayer.getColourValue();
+    }
 
 }
