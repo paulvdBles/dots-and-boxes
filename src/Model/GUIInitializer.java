@@ -67,8 +67,8 @@ public class GUIInitializer {
         setBoardSceneOnStage(primaryStage, loader);
         setBoardControllerReference(loader);
         attachSceneToController(primaryStage);
-        List listOfBoardItems = new BoardItemsBuilder().configureBoardItems(engine);
-        new BoardDrawer().drawItemsOnBoard(listOfBoardItems, boardController);
+        List listOfBoardItems = new ItemsBuilder().configureBoardItems(engine);
+        new BoardBuilder().drawItemsOnBoard(listOfBoardItems, boardController);
         boardController.setEngine(engine);
         primaryStage.show();
     }

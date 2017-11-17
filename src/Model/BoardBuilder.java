@@ -7,14 +7,13 @@ import Model.GameObjects.Dot;
 import Model.GameObjects.Line;
 import Model.Shapes.BoxShape;
 import Model.Shapes.LineShape;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 
 import java.util.List;
 
-public class BoardDrawer {
+public class BoardBuilder {
     private float positionX = 5;
     private float positionY = 5;
     private BoardController board;
@@ -84,7 +83,7 @@ public class BoardDrawer {
         line.setFill(Color.valueOf("#d0e1f2"));
         line.setOnMouseEntered(e -> board.setOnLineEntered(line));
         line.setOnMouseExited(e -> board.setOnLineExited(line));
-        line.setOnMouseClicked(e -> board.lineClicked());
+        line.setOnMouseClicked(e -> board.lineClicked(line));
         line.setStroke(Color.BLACK);
         line.setStrokeType(StrokeType.INSIDE);
         board.addItem(line);

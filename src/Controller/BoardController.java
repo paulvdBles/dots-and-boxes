@@ -1,11 +1,6 @@
 package Controller;
 
 import Model.GameEngine;
-import Model.GameObjects.BoardItem;
-import Model.GameObjects.Box;
-import Model.GameObjects.Dot;
-import Model.GameObjects.Line;
-import Model.Shapes.BoxShape;
 import Model.Shapes.LineShape;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -13,10 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
-
-import java.util.List;
-
 
 public class BoardController {
 
@@ -32,8 +23,8 @@ public class BoardController {
         this.primaryScene = primaryScene;
     }
 
-    public void lineClicked() {
-        System.out.println("Click!");
+    public void lineClicked(LineShape line) {
+        engine.turn(line);
     }
 
     public void setOnLineEntered(Rectangle line) {

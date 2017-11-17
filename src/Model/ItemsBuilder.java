@@ -10,11 +10,12 @@ import javafx.fxml.FXMLLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardItemsBuilder {
+public class ItemsBuilder {
 
     public List configureBoardItems(GameEngine engine) {
         List listOfBoardItems = createListOfBoardItems(engine.getColumns(), engine.getRows());
         attachBoxesToLines(listOfBoardItems);
+        engine.setBoardItems(listOfBoardItems);
         return listOfBoardItems;
     }
 
