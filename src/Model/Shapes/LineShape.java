@@ -9,4 +9,8 @@ public class LineShape extends Rectangle{
     public LineShape(Line lineObject) {
         this.lineObject = lineObject;
     }
+
+    public Line getLineObject() {
+        return lineObject;
+    }
 }

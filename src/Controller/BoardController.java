@@ -24,17 +24,25 @@ public class BoardController {
     }
 
     public void lineClicked(LineShape line) {
-        engine.turn(line);
+        if (!line.getLineObject().isFilled()) {
+            line.setFill(Color.BLACK);
+            primaryScene.setCursor(Cursor.DEFAULT);
+            engine.turn(line);
+        }
     }
 
-    public void setOnLineEntered(Rectangle line) {
-        line.setFill(Color.valueOf(engine.getCurrentPlayerColour()));
-        primaryScene.setCursor(Cursor.HAND);
+    public void setOnLineEntered(LineShape line) {
+        if (!line.getLineObject().isFilled()){
+            line.setFill(Color.valueOf(engine.getCurrentPlayerColour()));
+            primaryScene.setCursor(Cursor.HAND);
+        }
     }
 
-    public void setOnLineExited(Rectangle line) {
-        line.setFill(Color.valueOf("#d0e1f2"));
-        primaryScene.setCursor(Cursor.DEFAULT);
+    public void setOnLineExited(LineShape line) {
+        if (!line.getLineObject().isFilled()) {
+            line.setFill(Color.valueOf("#d0e1f2"));
+            primaryScene.setCursor(Cursor.DEFAULT);
+        }
     }
 
     public void setEngine(GameEngine engine) {

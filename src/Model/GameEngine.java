@@ -2,6 +2,7 @@ package Model;
 
 import Model.GameObjects.*;
 import Model.Shapes.LineShape;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -61,8 +62,20 @@ public class GameEngine {
         guiInitializer.initializeGUI(primaryStage, this);
     }
 
-    public void turn(LineShape line){
-        System.out.println(line);
+    public void turn(LineShape clickedLineShape){
+        System.out.println(clickedLineShape);
         // een object met een methode met heel veel methodes die checkt of er nu een box is
+        Line lineGameObject = clickedLineShape.getLineObject();
+        lineGameObject.setFilled(true);
+        currentPlayer = changePlayer(currentPlayer);
+    }
+
+    private Player changePlayer(Player currentPlayer) {
+        if (currentPlayer.equals(playerOne)){
+            return playerTwo;
+        }
+        else {
+            return playerOne;
+        }
     }
 }
