@@ -52,10 +52,6 @@ public class GUIInitializer {
         primaryStage.show();
     }
 
-    private void attachSceneToController(Stage primaryStage) {
-        boardController.setPrimaryScene(primaryStage.getScene());
-    }
-
     public void checkIfBoardIsReady() {
         if (isRowsSet() && isColumnsSet()){
             buildBoard(primaryStage);
@@ -65,21 +61,34 @@ public class GUIInitializer {
     private void buildBoard(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
         setBoardSceneOnStage(primaryStage, loader);
-        setBoardControllerReference(loader);
+        setReferences(loader);
         attachSceneToController(primaryStage);
         List listOfBoardItems = new ItemsBuilder().configureBoardItems(engine);
         new BoardBuilder().drawItemsOnBoard(listOfBoardItems, boardController);
-        boardController.setEngine(engine);
         primaryStage.show();
     }
 
-    private void setBoardControllerReference(FXMLLoader loader) {
-        boardController = loader.getController();
-    }
-
-
     private FXMLLoader instantiateFXMLLoader(String fileName) {
         return new FXMLLoader(getClass().getResource("/View/" + fileName));
+    }
+
+    private void setBoardSceneOnStage(Stage primaryStage, FXMLLoader loader) {
+        try {
+            Parent root = loader.load();
+            primaryStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            // TODO: Error vangen
+        }
+    }
+
+    private void setReferences(FXMLLoader loader) {
+        boardController = loader.getController();
+        boardController.setEngine(engine);
+        engine.setBoardController(boardController);
+    }
+
+    private void attachSceneToController(Stage primaryStage) {
+        boardController.setPrimaryScene(primaryStage.getScene());
     }
 
     private void setSetupSceneOnStage(Stage primaryStage, FXMLLoader loader) {
@@ -91,13 +100,6 @@ public class GUIInitializer {
         }
     }
 
-    private void setBoardSceneOnStage(Stage primaryStage, FXMLLoader loader) {
-        try {
-            Parent root = loader.load();
-            primaryStage.setScene(new Scene(root));
-        } catch (IOException e) {
-            // TODO: Error vangen
-        }
-    }
+
 
 }

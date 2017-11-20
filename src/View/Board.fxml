@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
@@ -16,10 +18,15 @@
             <Text fx:id="playerOne" layoutX="33.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1:" />
             <Text fx:id="PlayerTwo" layoutX="33.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2:" />
             <Text fx:id="playerOnePoints" layoutX="81.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Points" />
-            <Text fx:id="playertwoPoints" layoutX="81.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Points" />
-            <Text fx:id="gameTitle" layoutX="152.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dots and Boxes">
+            <Text fx:id="playerTwoPoints" layoutX="81.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 Points" />
+            <ImageView fx:id="test" fitHeight="50.0" fitWidth="238.0" layoutX="154.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@title.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="winMessage" disable="true" layoutX="224.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0">
                <font>
-                  <Font name="Press Start 2P" size="18.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Text>
          </children>

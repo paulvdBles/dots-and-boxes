@@ -36,6 +36,7 @@ public class BoardBuilder {
             positionX = 5;
             positionY = determinateWhatPositionYShouldBe(listOfBoardItems, positionY, rowOfBoardItems);
         }
+        boardController.setPanePosition(positionY);
     }
 
     private void createBox(Box boxObject) {

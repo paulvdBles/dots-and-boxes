@@ -2,6 +2,7 @@ package Controller;
 
 import Model.GameEngine;
 import Model.GameObjects.Line;
+import Model.GameObjects.Player;
 import Model.Shapes.LineShape;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 public class BoardController {
 
@@ -17,6 +19,18 @@ public class BoardController {
 
     @FXML
     private Pane boardPane;
+
+    @FXML
+    private Text playerOnePoints;
+
+    @FXML
+    private Text playerTwoPoints;
+
+    @FXML
+    private Pane menuPane;
+
+    @FXML
+    private Text winMessage;
 
     private GameEngine engine;
 
@@ -53,5 +67,23 @@ public class BoardController {
 
     public void addItem(Rectangle item){
         boardPane.getChildren().add(item);
+    }
+
+    public void changeScore(Player currentPlayer) {
+        String newScoreText = currentPlayer.getScore() + " Points";
+        if (currentPlayer.getName() == "Player 1"){
+            playerOnePoints.setText(newScoreText);
+        }
+        else {
+            playerTwoPoints.setText(newScoreText);
+        }
+    }
+
+    public void setPanePosition(float positionY) {
+        menuPane.setLayoutY(positionY + 10);
+    }
+
+    public void showWinner(Player currentPlayer) {
+        winMessage.setText(currentPlayer.getName() + " wins!");
     }
 }

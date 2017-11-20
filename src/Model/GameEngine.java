@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.BoardController;
 import Model.GameObjects.*;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ public class GameEngine {
     private Player playerOne;
     private Player playerTwo;
     private Player currentPlayer;
+    private BoardController boardController;
 
     void setRows(int rows) {
         board.setRows(rows);
@@ -64,14 +66,14 @@ public class GameEngine {
         clickedLine.setFillStatus(true);
         int attachedBoxes = clickedLine.howManyAttachedBoxesAreFilledSinceThisTurn();
         currentPlayer.addPoints(attachedBoxes * 10);
+        boardController.changeScore(currentPlayer);
         if (checkIfAllBoxesAreFilled()){
-            // stop spel ofzo
+            determineWinner();
         }
-        else {
+
+        if (attachedBoxes <= 0){
             currentPlayer = changePlayer();
         }
-        // iets dat checkt of er nu een box is ingevuld
-
     }
 
     private boolean checkIfAllBoxesAreFilled() { // hier maak ik een methode van die checkt of alle boxen gevuld zijn
@@ -93,6 +95,19 @@ public class GameEngine {
             return playerTwo;
         } else {
             return playerOne;
+        }
+    }
+
+    public void setBoardController(BoardController boardController) {
+        this.boardController = boardController;
+    }
+
+    private void determineWinner() {
+        if (playerOne.getScore() > playerTwo.getScore()){
+            boardController.showWinner(playerOne);
+        }
+        else {
+            boardController.showWinner(playerTwo);
         }
     }
 }
