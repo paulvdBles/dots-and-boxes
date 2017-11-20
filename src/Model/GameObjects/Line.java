@@ -1,21 +1,44 @@
 package Model.GameObjects;
 
+import java.util.ArrayList;
+
 /**
  * Created by Paul van der Bles on 8-8-2017.
  */
 public class Line implements BoardItem {
-    private boolean filled;
+    private boolean fillStatus;
+    private ArrayList<Box> attachedBoxes = new ArrayList<>();
 
-    public boolean isFilled() {
-        return filled;
+    public void addAttachedBoxes(Box box) {
+        attachedBoxes.add(box);
     }
 
-    public void setFilled(boolean filled) {
-        this.filled = filled;
+    public ArrayList<Box> getAttachedBoxes() {
+        return attachedBoxes;
+    }
+
+    public boolean getFillStatus() {
+        return fillStatus;
+    }
+
+    public void setFillStatus(boolean fill) {
+        this.fillStatus = fill;
     }
 
     @Override
     public String toString() {
         return "Line";
+    }
+
+    public int howManyAttachedBoxesAreFilledSinceThisTurn() {
+        int sum = 0;
+        for (Box box : attachedBoxes) {
+            if (!box.isAlreadyFilled()) {
+                if (box.shouldBeFilled()) {
+                    sum += 1;
+                }
+            }
+        }
+        return sum;
     }
 }

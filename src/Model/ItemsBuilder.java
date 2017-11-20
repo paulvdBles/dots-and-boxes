@@ -1,11 +1,9 @@
 package Model;
 
-import Controller.BoardController;
 import Model.GameObjects.BoardItem;
 import Model.GameObjects.Box;
 import Model.GameObjects.Dot;
 import Model.GameObjects.Line;
-import javafx.fxml.FXMLLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +65,7 @@ public class ItemsBuilder {
                     Line southernLine = findAssociatedSouthernLine(listOfBoardItems, indexOfRow, indexOfBox);
                     Line westernLine = findAssociatedWesternLine(rowOfBoardItems, indexOfBox);
 
-                    ((Box) item).setAssociatedLines(northernLine, easternLine, southernLine, westernLine);
+                    ((Box) item).setLinesRelationship(northernLine, easternLine, southernLine, westernLine);
                 }
             }
         }

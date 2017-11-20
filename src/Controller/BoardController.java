@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.GameEngine;
+import Model.GameObjects.Line;
 import Model.Shapes.LineShape;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -23,23 +24,24 @@ public class BoardController {
         this.primaryScene = primaryScene;
     }
 
-    public void lineClicked(LineShape line) {
-        if (!line.getLineObject().isFilled()) {
-            line.setFill(Color.BLACK);
+    public void lineClicked(LineShape clickedLineShape) {
+        if (!clickedLineShape.getLineObject().getFillStatus()) {
+            clickedLineShape.setFill(Color.BLACK);
             primaryScene.setCursor(Cursor.DEFAULT);
-            engine.turn(line);
+            Line lineObject = clickedLineShape.getLineObject();
+            engine.turn(lineObject);
         }
     }
 
     public void setOnLineEntered(LineShape line) {
-        if (!line.getLineObject().isFilled()){
+        if (!line.getLineObject().getFillStatus()){
             line.setFill(Color.valueOf(engine.getCurrentPlayerColour()));
             primaryScene.setCursor(Cursor.HAND);
         }
     }
 
     public void setOnLineExited(LineShape line) {
-        if (!line.getLineObject().isFilled()) {
+        if (!line.getLineObject().getFillStatus()) {
             line.setFill(Color.valueOf("#d0e1f2"));
             primaryScene.setCursor(Cursor.DEFAULT);
         }
