@@ -109,7 +109,8 @@ public class GameEngine {
     private void determineWinner() {
         if (playerOne.getScore() > playerTwo.getScore()) {
             boardController.showWinner(playerOne);
-        }if (playerOne.getScore() < playerTwo.getScore()) {
+        }
+        else if (playerOne.getScore() < playerTwo.getScore()) {
             boardController.showWinner(playerTwo);
         }
         else {
