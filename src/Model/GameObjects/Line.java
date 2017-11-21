@@ -9,7 +9,7 @@ public class Line implements BoardItem {
     private boolean fillStatus;
     private ArrayList<Box> attachedBoxes = new ArrayList<>();
 
-    public void addAttachedBoxes(Box box) {
+    void addAttachedBox(Box box) {
         attachedBoxes.add(box);
     }
 
@@ -23,11 +23,6 @@ public class Line implements BoardItem {
 
     public void setFillStatus(boolean fill) {
         this.fillStatus = fill;
-    }
-
-    @Override
-    public String toString() {
-        return "Line";
     }
 
     public int howManyAttachedBoxesAreFilledSinceThisTurn() {

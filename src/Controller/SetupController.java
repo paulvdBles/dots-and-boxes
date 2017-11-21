@@ -24,7 +24,7 @@ public class SetupController {
         this.initializer = initializer;
     }
 
-    public void prepareToSendBoardSizeAfterClick() {
+    public void prepareToSendBoardSizeAfterClick() { // gets input from setup window and checks if values are ok
         String input = getInput();
         if (checkBeforeSendingSize(input)) {
             int convertedInput = convertInputToInt(input);
@@ -45,7 +45,7 @@ public class SetupController {
         }
     }
 
-    public String getInput() {
+    private String getInput() {
         return inputField.getText();
     }
 
@@ -78,6 +78,4 @@ public class SetupController {
     private void changeColumnsMessage() {
         message.setText("Enter a number of columns between 3 and 9");
     }
-
-
 }

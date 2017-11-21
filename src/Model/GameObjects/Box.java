@@ -1,33 +1,34 @@
 package Model.GameObjects;
 
-/**
+import Model.Shapes.BoxShape; /**
  * Created by Paul van der Bles on 8-8-2017.
  */
 public class Box implements BoardItem {
-    private boolean fillStatus;
+    public boolean fillStatus;
 
     private Line northernLine;
     private Line easternLine;
     private Line southernLine;
     private Line westernLine;
+    private BoxShape boxShape;
 
     public void setLinesRelationship(Line northernLine, Line easternLine, Line southernLine, Line westernLine) {
         setAssociatedLines(northernLine, easternLine, southernLine, westernLine);
 
-        northernLine.addAttachedBoxes(this);
-        easternLine.addAttachedBoxes(this);
-        southernLine.addAttachedBoxes(this);
-        westernLine.addAttachedBoxes(this);
+        northernLine.addAttachedBox(this);
+        easternLine.addAttachedBox(this);
+        southernLine.addAttachedBox(this);
+        westernLine.addAttachedBox(this);
     }
 
-    public void setAssociatedLines(Line northernLine, Line easternLine, Line southernLine, Line westernLine) {
+    private void setAssociatedLines(Line northernLine, Line easternLine, Line southernLine, Line westernLine) {
         this.northernLine = northernLine;
         this.easternLine = easternLine;
         this.southernLine = southernLine;
         this.westernLine = westernLine;
     }
 
-    public boolean isAlreadyFilled() {
+    boolean isAlreadyFilled() {
         return fillStatus;
     }
 
@@ -36,4 +37,11 @@ public class Box implements BoardItem {
         return fillStatus;
     }
 
+    public void setBoxShapeRelation(BoxShape boxShape) {
+        this.boxShape = boxShape;
+    }
+
+    public BoxShape getBoxShape() {
+        return boxShape;
+    }
 }

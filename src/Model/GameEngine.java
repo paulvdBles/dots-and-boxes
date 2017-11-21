@@ -20,6 +20,10 @@ public class GameEngine {
     private Player currentPlayer;
     private BoardController boardController;
 
+    void setBoardController(BoardController boardController) {
+        this.boardController = boardController;
+    }
+
     void setRows(int rows) {
         board.setRows(rows);
     }
@@ -65,29 +69,33 @@ public class GameEngine {
     public void turn(Line clickedLine) {
         clickedLine.setFillStatus(true);
         int attachedBoxes = clickedLine.howManyAttachedBoxesAreFilledSinceThisTurn();
-        currentPlayer.addPoints(attachedBoxes * 10);
-        boardController.changeScore(currentPlayer);
-        if (checkIfAllBoxesAreFilled()){
+
+        if (checkIfAllBoxesAreFilled()) {
             determineWinner();
         }
 
-        if (attachedBoxes <= 0){
+        if (attachedBoxes <= 0) {
             currentPlayer = changePlayer();
+        } else {
+            boardController.changeBoxColour(clickedLine.getAttachedBoxes(), currentPlayer);
+            currentPlayer.addPoints(attachedBoxes * 10);
+            boardController.changeScore(currentPlayer, playerOne, playerTwo);
         }
+
     }
 
-    private boolean checkIfAllBoxesAreFilled() { // hier maak ik een methode van die checkt of alle boxen gevuld zijn
+    private boolean checkIfAllBoxesAreFilled() {
+        boolean allBoxesAreFilled = true;
         for (List<BoardItem> rowOfBoardItems : boardItems) {
             for (BoardItem item : rowOfBoardItems) {
                 if (item instanceof Box) {
                     if (!((Box) item).shouldBeFilled()) {
-                        return false;
+                        allBoxesAreFilled = false;
                     }
-
                 }
             }
         }
-        return true;
+        return allBoxesAreFilled;
     }
 
     private Player changePlayer() {
@@ -98,16 +106,14 @@ public class GameEngine {
         }
     }
 
-    public void setBoardController(BoardController boardController) {
-        this.boardController = boardController;
-    }
-
     private void determineWinner() {
-        if (playerOne.getScore() > playerTwo.getScore()){
+        if (playerOne.getScore() > playerTwo.getScore()) {
             boardController.showWinner(playerOne);
+        }if (playerOne.getScore() < playerTwo.getScore()) {
+            boardController.showWinner(playerTwo);
         }
         else {
-            boardController.showWinner(playerTwo);
+            boardController.showTie();
         }
     }
 }

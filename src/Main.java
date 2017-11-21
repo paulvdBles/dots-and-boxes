@@ -11,9 +11,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        GUIInitializer guiInitializer = new GUIInitializer();
-        GameEngine engine = new GameEngine(guiInitializer, primaryStage);
+        GameEngine engine = new GameEngine(new GUIInitializer(), primaryStage);
     }
-
-
 }

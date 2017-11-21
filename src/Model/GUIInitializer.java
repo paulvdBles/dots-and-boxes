@@ -30,6 +30,7 @@ public class GUIInitializer {
     public boolean isRowsSet() {
         return engine.getRows() != 0;
     }
+
     public boolean isColumnsSet() {
         return engine.getColumns() != 0;
     }
@@ -38,7 +39,7 @@ public class GUIInitializer {
         primaryStage.setTitle("Dots and boxes");
     }
 
-    public void initializeGUI(Stage primaryStage, GameEngine engine) {
+    void initializeGUI(Stage primaryStage, GameEngine engine) {
         this.engine = engine;
         setTitle(primaryStage);
         loadSetupScreen(primaryStage);
@@ -48,19 +49,19 @@ public class GUIInitializer {
     private void loadSetupScreen(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Setup.fxml");
         loader.setController(new SetupController(this));
-        setSetupSceneOnStage(primaryStage, loader); // TODO: Uitzoeken of ik deze methode kan schrijven met 1 parameter
+        setSceneOnStage(primaryStage, loader);
         primaryStage.show();
     }
 
     public void checkIfBoardIsReady() {
-        if (isRowsSet() && isColumnsSet()){
+        if (isRowsSet() && isColumnsSet()) {
             buildBoard(primaryStage);
         }
     }
 
     private void buildBoard(Stage primaryStage) {
         FXMLLoader loader = instantiateFXMLLoader("Board.fxml");
-        setBoardSceneOnStage(primaryStage, loader);
+        setSceneOnStage(primaryStage, loader);
         setReferences(loader);
         attachSceneToController(primaryStage);
         List listOfBoardItems = new ItemsBuilder().configureBoardItems(engine);
@@ -72,12 +73,12 @@ public class GUIInitializer {
         return new FXMLLoader(getClass().getResource("/View/" + fileName));
     }
 
-    private void setBoardSceneOnStage(Stage primaryStage, FXMLLoader loader) {
+    private void setSceneOnStage(Stage primaryStage, FXMLLoader loader) {
         try {
             Parent root = loader.load();
             primaryStage.setScene(new Scene(root));
         } catch (IOException e) {
-            // TODO: Error vangen
+            System.out.println("Something went wrong while setting scene on the primary stage");
         }
     }
 
@@ -90,16 +91,4 @@ public class GUIInitializer {
     private void attachSceneToController(Stage primaryStage) {
         boardController.setPrimaryScene(primaryStage.getScene());
     }
-
-    private void setSetupSceneOnStage(Stage primaryStage, FXMLLoader loader) {
-        try {
-            Parent root = loader.load();
-            primaryStage.setScene(new Scene(root));
-        } catch (IOException e) {
-            // TODO: Error vangen
-        }
-    }
-
-
-
 }

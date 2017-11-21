@@ -18,7 +18,7 @@ public class BoardBuilder {
     private float positionY = 5;
     private BoardController board;
 
-    public void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems, BoardController boardController) {
+    void drawItemsOnBoard(List<List<BoardItem>> listOfBoardItems, BoardController boardController) {
         board = boardController;
 
         for (List<BoardItem> rowOfBoardItems : listOfBoardItems) {
@@ -48,7 +48,7 @@ public class BoardBuilder {
         box.setFill(Color.WHITE);
         box.setStroke(Color.BLACK);
         box.setStrokeType(StrokeType.INSIDE);
-        board.addItem(box);
+        board.addItemToBoard(box);
         positionX += 74;
     }
 
@@ -61,7 +61,7 @@ public class BoardBuilder {
         dot.setFill(Color.valueOf("#363b40"));
         dot.setStroke(Color.BLACK);
         dot.setStrokeType(StrokeType.INSIDE);
-        board.addItem(dot);
+        board.addItemToBoard(dot);
         positionX += 14;
     }
 
@@ -87,7 +87,7 @@ public class BoardBuilder {
         line.setOnMouseClicked(e -> board.lineClicked(line));
         line.setStroke(Color.BLACK);
         line.setStrokeType(StrokeType.INSIDE);
-        board.addItem(line);
+        board.addItemToBoard(line);
     }
 
     private float determinateWhatPositionYShouldBe(List<List<BoardItem>> listOfBoardItems, float positionY, List<BoardItem> rowOfBoardItems) {
