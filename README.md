@@ -11,5 +11,5 @@ Starting with an empty grid of dots, two players take turns adding a single hori
 
 |Tool name|Description|
 |:---|:---|
-|[IntelliJ IDEA](https://www.jetbrains.com/idea/)| I prefer working with IntelliJ IDEA because I like it's code assist, refactoring support and VCS integration.
+|[IntelliJ IDEA](https://www.jetbrains.com/idea/)| I prefer working with IntelliJ IDEA because I like it's code assist, refactoring support and VCS integration
 |[idea-gitignore](https://github.com/hsz/idea-gitignore)|Used to generate my .gitignore
