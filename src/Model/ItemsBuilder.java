@@ -17,7 +17,7 @@ public class ItemsBuilder {
         return listOfBoardItems;
     }
 
-    private List createListOfBoardItems(int columns, int rows) {
+    private List createListOfBoardItems(int columns, int rows) { // Makes a list that represents the dots, boxes and lines on the board
         List<List<BoardItem>> boardList = new ArrayList<>();
         for (int currentRow = 0; currentRow <= (rows * 2); currentRow++) {
             List<BoardItem> objectsRow = new ArrayList<>();
@@ -53,7 +53,7 @@ public class ItemsBuilder {
         }
     }
 
-    private void attachBoxesToLines(List<List<BoardItem>> listOfBoardItems) {
+    private void attachBoxesToLines(List<List<BoardItem>> listOfBoardItems) { // Sets the right references for a box with it's lines
         for (List<BoardItem> rowOfBoardItems : listOfBoardItems) {
             for (BoardItem item : rowOfBoardItems) {
                 if (item instanceof Box) {
